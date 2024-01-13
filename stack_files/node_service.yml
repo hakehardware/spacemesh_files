@@ -1,0 +1,56 @@
+# This file assumes you want to create a new network called spacenet.
+# Remove or change depending on your network preferences
+version: '2'
+services:
+
+  node01: # Update ports and node number for each node
+    image: spacemeshos/go-spacemesh:v1.3.0 # Replace with latest release
+    container_name: node01 
+    ports:
+      - "10192:10192"
+      - "10193:10193"
+      - "10194:10194"
+    volumes:
+      - /media/node_service01/node01:/node
+      - /home/hakedev/certs:/certs
+    command:
+      - '-c'
+      - '/node/config.json'
+      - '--smeshing-coinbase=<YOUR COINBASE>'
+      - '--smeshing-opts-datadir=/node/key'
+    environment:
+      - TZ=<YOUR TIMEZONE>    
+    networks:
+      spacenet:
+        ipv4_address: 172.18.0.101
+
+  node02:
+    image: spacemeshos/go-spacemesh:v1.3.0 # Replace with latest release
+    container_name: node02
+    ports:
+      - "10292:10292"
+      - "10293:10293"
+      - "10294:10294"
+    volumes:
+      - /media/node_service01/node02:/node
+      - /home/hakedev/certs:/certs
+    command:
+      - '-c'
+      - '/node/config.json'
+      - '--smeshing-coinbase=<YOUR COINBASE>'
+      - '--smeshing-opts-datadir=/node/key'
+    environment:
+      - TZ=<YOUR TIMEZONE>    
+    networks:
+      spacenet:
+        ipv4_address: 172.18.0.102
+
+networks:
+  spacenet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/16
+          gateway: 172.18.0.1
+
