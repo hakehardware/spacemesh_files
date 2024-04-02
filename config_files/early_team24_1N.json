@@ -1,0 +1,41 @@
+{
+    "main": {
+        "data-folder": "/node/node_data",
+        "metrics-port": "10001",
+        "metrics": true,
+        "poet-servers": [
+            {
+                "address": "https://eos-1.team24.co",
+                "pubkey": "fylHXD+Wiqu6+Sg+VAnqkS6Z+tN9FO4eYqZArcQYhxs="
+            },
+            {
+                "address": "https://eos-2.team24.co",
+                "pubkey": "b9TFjOXFOJgrPGMGQs+f+pe96AOHHBNEGA7P20Tu8gU="
+            },
+            {
+                "address": "https://eos-3.team24.co",
+                "pubkey": "jF5HYic7ZDxY3NbZWPuIcmU8KJQPhjxOzy7N8bcXXj4="
+            }
+        ]
+    },
+    "poet": {
+        "phase-shift": "120h",
+        "cycle-gap": "24h",
+        "grace-period": "2h"
+    },
+    "api": {
+        "grpc-public-listener": "0.0.0.0:9192",
+        "grpc-private-listener": "0.0.0.0:9193",
+        "grpc-post-listener": "0.0.0.0:9194"
+    },
+    "p2p": {
+        "listen": "/ip4/0.0.0.0/tcp/6001"
+    },
+    "logging": {
+        "p2p": "error"
+    },
+    "smeshing": {
+        "smeshing-start": false,
+        "smeshing-coinbase": "YOUR COIN BASE HERE"
+    }
+}
