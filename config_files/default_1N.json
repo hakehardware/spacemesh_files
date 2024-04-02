@@ -1,0 +1,22 @@
+{
+    "main": {
+        "data-folder": "/node/node_data",
+        "metrics-port": "10003",
+        "metrics": true
+    },
+    "api": {
+        "grpc-public-listener": "0.0.0.0:9392",
+        "grpc-private-listener": "0.0.0.0:9393",
+        "grpc-post-listener": "0.0.0.0:9394"
+    },
+    "p2p": {
+        "listen": "/ip4/0.0.0.0/tcp/6003"
+    },
+    "logging": {
+        "p2p": "error"
+    },
+    "smeshing": {
+        "smeshing-start": false,
+        "smeshing-coinbase": "YOUR COINBASE"
+    }
+}
