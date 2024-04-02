@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+  prometheus: 
+    image: prom/prometheus:latest
+    container_name: prometheus
+    command: "--config.file=/etc/prometheus/prometheus.yml"
+    user: root
+    volumes:
+      - /etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    ports:
+      - 9090:9090
+    networks:
+      spacenet:
+        ipv4_address: 172.18.0.90
+    depends_on:
+      - cadvisor
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    ports:
+      - 8080:8080
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    networks:
+      spacenet:
+        ipv4_address: 172.18.0.92
+
+volumes:
+  prometheus_data:
+  
+networks:
+  spacenet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/16
+          gateway: 172.18.0.1

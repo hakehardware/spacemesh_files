@@ -1,0 +1,72 @@
+version: '3.8'
+services:
+  post_service011:
+    image: spacemeshos/post-service:v0.7.3
+    container_name: post_service011
+    volumes:
+      - /media/spacemesh/node011:/postdata
+    command:
+      - '--dir'
+      - '/postdata'
+      - '--address'
+      - 'http://172.18.0.101:9194'
+      - '--threads'
+      - '6'
+      - '--nonces'
+      - '208'
+      - '--operator-address'
+      - '0.0.0.0:50000'
+    environment:
+      - TZ=America/Phoenix
+    networks:
+      base-stack_spacenet:
+        ipv4_address: 172.18.0.2
+
+  post_service061:
+    image: spacemeshos/post-service:v0.7.3
+    container_name: post_service061
+    volumes:
+      - /media/spacemesh/node061:/postdata
+    command:
+      - '--dir'
+      - '/postdata'
+      - '--address'
+      - 'http://172.18.0.101:9194'
+      - '--threads'
+      - '6'
+      - '--nonces'
+      - '208'
+      - '--operator-address'
+      - '0.0.0.0:50000'
+    environment:
+      - TZ=America/Phoenix
+    networks:
+      base-stack_spacenet:
+        ipv4_address: 172.18.0.12
+
+  post_service111:
+    image: spacemeshos/post-service:v0.7.3
+    container_name: post_service111
+    volumes:
+      - /media/spacemesh/node111:/postdata
+    command:
+      - '--dir'
+      - '/postdata'
+      - '--address'
+      - 'http://172.18.0.101:9194'
+      - '--threads'
+      - '6'
+      - '--nonces'
+      - '208'
+      - '--operator-address'
+      - '0.0.0.0:50000'
+    environment:
+      - TZ=America/Phoenix
+    networks:
+      base-stack_spacenet:
+        ipv4_address: 172.18.0.22
+
+
+networks:
+  base-stack_spacenet:
+    external: true

@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  early_team24:
+    image: spacemeshos/go-spacemesh:v1.4.4
+    container_name: early_team24
+    ports:
+      - "9192:9192" 
+      - "9193:9193"
+      - "9194:9194"
+    volumes:
+      - /home/hakedev/spacemesh/early_team24:/node
+    command:
+      - '-c'
+      - '/node/config.json'
+    environment:
+      - TZ=America/Phoenix   
+    networks:
+      base-stack_spacenet:
+        ipv4_address: 172.18.0.101
+
+  late_team24:
+    image: spacemeshos/go-spacemesh:v1.4.4
+    container_name: late_team24
+    ports:
+      - "9292:9292" 
+      - "9293:9293"
+      - "9294:9294"
+    volumes:
+      - /home/hakedev/spacemesh/late_team24:/node
+    command:
+      - '-c'
+      - '/node/config.json'
+    environment:
+      - TZ=America/Phoenix   
+    networks:
+      base-stack_spacenet:
+        ipv4_address: 172.18.0.102
+
+networks:
+  base-stack_spacenet:
+    external: true
