@@ -1,0 +1,45 @@
+{
+    "main": {
+        "data-folder": "/node/node_data",
+        "metrics-port": "10002",
+        "metrics": true,
+        "poet-servers": [
+            {
+                "address": "https://poet-1.team24.co",
+                "pubkey": "AHlrgUZq5dFqK2oa2C9qVq4qIE2beJ/mG7sryynfqx0="
+            },
+            {
+                "address": "https://poet-2.team24.co",
+                "pubkey": "8SatjpHxbrfeIKTFSAFcZklxPnhUElloRvAUAy1xOxo="
+            },
+            {
+                "address": "https://poet-3.team24.co",
+                "pubkey": "givyUYkXx4kVe7gOngNEeIA4YrNBPojB7lAH1RLA62c="
+            },
+            {
+                "address": "https://poet-4.team24.co",
+                "pubkey": "oQ2rJ6iJ3AUb6UMZ+r5GWc9hljtAjoiUFoLfSd+Xm2E="
+            }
+        ]
+    },
+    "poet": {
+        "phase-shift": "288h",
+        "cycle-gap": "24h",
+        "grace-period": "2h"
+    },
+    "api": {
+        "grpc-public-listener": "0.0.0.0:9292",
+        "grpc-private-listener": "0.0.0.0:9293",
+        "grpc-post-listener": "0.0.0.0:9294"
+    },
+    "p2p": {
+        "listen": "/ip4/0.0.0.0/tcp/6002"
+    },
+    "logging": {
+        "p2p": "error"
+    },
+    "smeshing": {
+        "smeshing-start": false,
+        "smeshing-coinbase": "YOUR COINBASE"
+    }
+}
